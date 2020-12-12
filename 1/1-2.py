@@ -1,8 +1,14 @@
+import os
+
+local = os.path.dirname(os.path.abspath(__file__))
+input = os.path.join(local, 'input')
+
+
 def main ():
     sum = 0;
     values = {}
 
-    with open('./input/1') as f:
+    with open(input) as f:
         lines = f.read().splitlines()
         numbs = [int(x) for x in lines]
         numbs.sort()
