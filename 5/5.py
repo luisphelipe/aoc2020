@@ -12,23 +12,18 @@ def main ():
         for line in lines:
             data = line.split(" ")[0]
 
-            ticket = int(\
+            seat = int(\
                 data[0:7].replace('B', '1').replace('F', '0') + \
                 data[7:].replace('R', '1').replace('L', '0'), 2)
-            # print(ticket)
 
-            plane[ticket] = False
+            plane[seat] = True 
         
         # print(plane)
 
-        for ticket in range(2 ** 10):
-            try:
-                if (plane[ticket] is None and plane[ticket - 1] is False and plane[ticket + 1] is False):
-                    print(f"Empty seat id is {ticket}")
-
-            except:
-                pass
-                # print(f"Used seat id is {ticket}")
+        for seat in range(2 ** 10 - 1, 0, -1):
+            if plane[seat]:
+                print(f"Last used seat id is {seat}")
+                return
 
         # print("implementation missing")
 
